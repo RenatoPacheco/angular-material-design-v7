@@ -13,11 +13,15 @@ export class DialogExampleComponent implements OnInit {
   constructor() { }
 
   users: User[] = [];
-  displayedColumns: string[] = ['id', 'name', 'lastName', 'email'];
+  displayedColumns: string[] = ['id', 'name', 'lastName', 'email', 'button'];
 
   ngOnInit() {
     this.users = UserMock;
     this.users.sort(UserOrderBy.byFullName);
+  }
+
+  more(value: User) {
+    alert(`${value.name} ${value.lastName}`);
   }
 
 }
