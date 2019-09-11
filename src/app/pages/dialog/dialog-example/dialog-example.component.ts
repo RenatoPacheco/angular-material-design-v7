@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserMock, User } from 'src/app/core/models';
 import { UserOrderBy } from '../../../core/models/user.model';
+import { MatDialog } from '@angular/material';
+import { DialogDataUserComponent } from '../dialog-data-user/dialog-data-user.component';
 
 @Component({
   selector: 'app-dialog-example',
@@ -10,7 +12,7 @@ import { UserOrderBy } from '../../../core/models/user.model';
 })
 export class DialogExampleComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   users: User[] = [];
   displayedColumns: string[] = ['id', 'name', 'lastName', 'email', 'button'];
@@ -21,7 +23,10 @@ export class DialogExampleComponent implements OnInit {
   }
 
   more(value: User) {
-    alert(`${value.name} ${value.lastName}`);
+    const dialogRef = this.dialog.open(DialogDataUserComponent, {
+      width: '50%',
+      data: value
+    });
   }
 
 }
