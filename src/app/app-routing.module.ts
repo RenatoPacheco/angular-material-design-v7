@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: 'button',
     loadChildren: './pages/button/button.module#ButtonModule'
+  },
+  {
+    path: 'dialog',
+    loadChildren: './pages/dialog/dialog.module#DialogModule'
   }
 ];
 
